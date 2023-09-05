@@ -1,6 +1,6 @@
 import numpy as np
 
-class Convert:
+class convert:
     letters = np.array(["S", "A", "B", "C", "D", 'E', 'F', 'H', 'P', 'Q', 'R', 'G'])
     vertices = {'S' : 0,
                 'A' : 1,
