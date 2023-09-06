@@ -1,39 +1,67 @@
-from convert import *
 import numpy as np
-import sys
-sys.path.append(
-    '/Users/xenep/OneDrive/Documents/UAlbany/Fall 2023/ICSI 435 AI/Alvarez_S_Homework1/convert.py')
+from convert import *
+
 
 matrix_1 = np.zeros((12, 12), dtype=int)
 matrix_2 = np.zeros((12, 12), dtype=int)
+matrix_3 = np.zeros((12, 12), dtype=int)
+matrix_4 = np.zeros((12, 12), dtype=int)
 
-graph_1 = {'S': ['D', 'E', 'P'],
-           'A': ['B', 'C'],
-           'B': ['A', 'D'],
-           'C': ['A', 'D', 'F'],
-           'D': ['B', 'C', 'E', 'S'],
-           'E': ['D', 'H', 'R', 'S'],
-           'F': ['C', 'G', 'R'],
-           'H': ['E', 'P', 'Q'],
-           'P': ['H', 'Q', 'S'],
-           'Q': ['H', 'P'],
-           'R': ['E', 'F'],
-           'G': ['F']}
+vertex_list_1_3 = {'S': ['D', 'E', 'P'],
+                   'A': ['B', 'C'],
+                   'B': ['A', 'D'],
+                   'C': ['A', 'D', 'F'],
+                   'D': ['B', 'C', 'E', 'S'],
+                   'E': ['D', 'H', 'R', 'S'], 
+                   'F': ['C', 'G', 'R'],
+                   'H': ['E', 'P', 'Q'],
+                   'P': ['H', 'Q', 'S'],
+                   'Q': ['H', 'P'],
+                   'R': ['E', 'F'],
+                   'G': ['F']}
 
-graph_2 = {'S': ['D', 'E', 'P'],
-           'B': ['A'],
-           'C': ['A'],
-           'D': ['B', 'C', 'E'],
-           'E': ['H', 'R'],
-           'F': ['C', 'G'],
-           'H': ['P', 'Q'],
-           'P': ['Q'],
-           'R': ['F']}
+edge_list_3 = np.array([3,9,1,
+                        2,2,
+                        2,1,
+                        2,8,3,
+                        1,8,2,3,
+                        2,8,2,9,
+                        3,2,2,
+                        8,4,4,
+                        4,15,1,
+                        4,15,
+                        2,2,
+                        2])
 
-matrix_1 = convert.convertListToMatrixUW(matrix_1, graph_1)
-matrix_2 = convert.convertListToMatrixUW(matrix_2, graph_2)
+vertex_list_2_4 = {'S': ['D', 'E', 'P'],
+                   'B': ['A'],
+                   'C': ['A'],
+                   'D': ['B', 'C', 'E'],
+                   'E': ['H', 'R'],
+                   'F': ['C', 'G'],
+                   'H': ['P', 'Q'],
+                   'P': ['Q'],
+                   'R': ['F']}
 
+edge_list_4 = np.array([3,9,1,
+                        2,
+                        2,
+                        1,8,2,
+                        8,2,
+                        3,2,
+                        4,4,
+                        15,
+                        2])
+
+matrix_1 = convert.convertListToMatrixUW(matrix_1, vertex_list_1_3)
+matrix_2 = convert.convertListToMatrixUW(matrix_2, vertex_list_2_4)
+matrix_3 = convert.convertListToMatrixW(matrix_3, vertex_list_1_3, edge_list_3)
+matrix_4 = convert.convertListToMatrixW(matrix_4, vertex_list_2_4, edge_list_4)
+print("Graph 1")
 convert.printAdjMatrix(matrix_1)
-print()
+print("\nGraph 2")
 convert.printAdjMatrix(matrix_2)
-
+print("\nGraph 3")
+convert.printAdjMatrix(matrix_3)
+print("\nGraph 4")
+convert.printAdjMatrix(matrix_4)
