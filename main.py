@@ -57,6 +57,7 @@ matrix_1 = convert.convertListToMatrixUW(matrix_1, vertex_list_1_3)
 matrix_2 = convert.convertListToMatrixUW(matrix_2, vertex_list_2_4)
 matrix_3 = convert.convertListToMatrixW(matrix_3, vertex_list_1_3, edge_list_3)
 matrix_4 = convert.convertListToMatrixW(matrix_4, vertex_list_2_4, edge_list_4)
+
 print("Graph 1")
 convert.printAdjMatrix(matrix_1)
 print("\nGraph 2")
