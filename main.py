@@ -1,5 +1,8 @@
 import numpy as np
 from convert import *
+from DFS import *
+from BFS import *
+
 
 
 matrix_1 = np.zeros((12, 12), dtype=int)
@@ -58,11 +61,15 @@ matrix_2 = convert.convertListToMatrixUW(matrix_2, vertex_list_2_4)
 matrix_3 = convert.convertListToMatrixW(matrix_3, vertex_list_1_3, edge_list_3)
 matrix_4 = convert.convertListToMatrixW(matrix_4, vertex_list_2_4, edge_list_4)
 
-print("Graph 1")
-convert.printAdjMatrix(matrix_1)
-print("\nGraph 2")
-convert.printAdjMatrix(matrix_2)
-print("\nGraph 3")
-convert.printAdjMatrix(matrix_3)
-print("\nGraph 4")
-convert.printAdjMatrix(matrix_4)
+# print("Graph 1")
+# convert.printAdjMatrix(matrix_1)
+# print("\nGraph 2")
+# convert.printAdjMatrix(matrix_2)
+# print("\nGraph 3")
+# convert.printAdjMatrix(matrix_3)
+# print("\nGraph 4")
+# convert.printAdjMatrix(matrix_4)
+
+print(f"\n{DFS.DFS_stack_iterative_v(vertex_list_1_3)}")
+# print()
+# print(f"\n{DFS.DFS_stack_iterative_v(vertex_list_2_4)}")

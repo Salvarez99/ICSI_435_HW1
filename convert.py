@@ -46,14 +46,18 @@ class convert:
     @classmethod
     def printAdjMatrix(self, matrix: np.ndarray):
         print("  ", end=" ")
-        for i in range(self.letters.size):
-            print(f"{self.letters[i]}", end=" ")
+        # for i in range(self.letters.size):
+        #     print(f"{self.letters[i]} ", end=" ")
 
         print()
         for rows in range(12):
-            print(f"{self.letters[rows]}: ", end="")
+            # print(f"{self.letters[rows]}: ", end="")
             for cols in range(12):
-                print(f"{matrix[rows,cols]}", end=" ")
+                if matrix[rows][cols] < 10:
+                    print(f"{matrix[rows,cols]}", end=" ")
+                else:
+                    print(f"{matrix[rows,cols]}", end=" ")
+
             print()
 
         return
