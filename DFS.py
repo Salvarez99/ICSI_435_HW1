@@ -3,21 +3,20 @@ import numpy as np
 
 class DFS:
 
-    stack : list[dict[str,list[str]]] = []
+    stack: list[dict[str, list[str]]] = []
 
     visited = {'S': False,
-            'A': False,
-            'B': False,
-            'C': False,
-            'D': False,
-            'E': False,
-            'F': False,
-            'H': False,
-            'P': False,
-            'Q': False,
-            'R': False,
-            'G': False}
-
+               'A': False,
+               'B': False,
+               'C': False,
+               'D': False,
+               'E': False,
+               'F': False,
+               'H': False,
+               'P': False,
+               'Q': False,
+               'R': False,
+               'G': False}
 
     @classmethod
     def DFS_stack_recursive_v(vertex_list: dict[str, list[str]]):
@@ -26,12 +25,13 @@ class DFS:
 
     @classmethod
     def DFS_stack_iterative_v(self, vertex_list: dict[str, list[str]]):
-        
+        self.resetVisited(self)
+
         key, value = next(iter(vertex_list.items()))
         node = {}
         node[key] = value
 
-        self.stack.append(node) 
+        self.stack.append(node)
 
         while not self.isEmpty(self):
 
@@ -42,20 +42,21 @@ class DFS:
 
             print(f"->{popped_key}", end="")
 
-            #Checking if currentNode is the goal node 
+            # Checking if currentNode is the goal node
             if popped_key == 'G':
                 return vertex_list.get(popped_key)
-            
-            #Iterate through each neighboring node
-            for i in reversed(values):
-                if self.visited.get(i) == False:
-                    self.visited[i] = True
 
-                    
-                    nextNode = {}
-                    nextNode[i] = vertex_list.get(i)
+            # Iterate through each neighboring node
+            # Check values is empty
+            if values:
+                for i in reversed(values):
+                    if self.visited.get(i) == False:
+                        self.visited[i] = True
 
-                    self.stack.append(nextNode)
+                        nextNode = {}
+                        nextNode[i] = vertex_list.get(i)
+
+                        self.stack.append(nextNode)
 
         return 0
 
@@ -94,3 +95,8 @@ class DFS:
             return True
 
         return False
+
+    def resetVisited(self):
+        for keys in self.visited:
+            self.visited[keys] = False
+        return

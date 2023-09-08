@@ -70,6 +70,8 @@ matrix_4 = convert.convertListToMatrixW(matrix_4, vertex_list_2_4, edge_list_4)
 # print("\nGraph 4")
 # convert.printAdjMatrix(matrix_4)
 
-print(f"\n{DFS.DFS_stack_iterative_v(vertex_list_1_3)}")
-# print()
-# print(f"\n{DFS.DFS_stack_iterative_v(vertex_list_2_4)}")
+print("Graph 1: DFS Stack Iteratively VertexList")
+DFS.DFS_stack_iterative_v(vertex_list_1_3)
+print("\n\nGraph 2: DFS Stack Iteratively VertexList")
+DFS.DFS_stack_iterative_v(vertex_list_2_4) 
+#correct ->S->D->B->A->C->E->H->Q->R->F->G
