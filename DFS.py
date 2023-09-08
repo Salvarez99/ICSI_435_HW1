@@ -19,9 +19,24 @@ class DFS:
                'G': False}
 
     @classmethod
-    def DFS_stack_recursive_v(vertex_list: dict[str, list[str]]):
+    def DFS_stack_recursive_v(self, startNode : str ,vertex_list: dict[str, list[str]]):
+        self.resetVisited(self)
 
-        return
+        if (startNode in self.visited) and (self.visited.get(startNode) == True):
+            return
+        
+        self.visited[startNode] = True
+        values = vertex_list.get(startNode)
+
+        print(f"->{startNode}")
+        for neighbor in reversed(values):
+            self.DFS_stack_recursive_v(neighbor, vertex_list)
+
+
+
+
+
+
 
     @classmethod
     def DFS_stack_iterative_v(self, vertex_list: dict[str, list[str]]):
@@ -61,32 +76,12 @@ class DFS:
         return 0
 
     @classmethod
-    def DFS_queue_recursive_v(self, vertex_list: dict[str, list[str]]):
-
-        return
-
-    @classmethod
-    def DFS_queue_iterative_v(self, vertex_list: dict[str, list[str]]):
-
-        return
-
-    @classmethod
     def DFS_stack_recursive_adj(self, adj_matrix: np.ndarray):
 
         return
 
     @classmethod
     def DFS_stack_iterative_adj(self, adj_matrix: np.ndarray):
-
-        return
-
-    @classmethod
-    def DFS_queue_recursive_adj(self, adj_matrix: np.ndarray):
-
-        return
-
-    @classmethod
-    def DFS_queue_iterative_adj(adj_matrix: np.ndarray):
 
         return
 
