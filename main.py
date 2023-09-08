@@ -3,8 +3,25 @@ from convert import *
 from DFS import *
 from BFS import *
 
+def resetVisited(visited : dict[str : bool]):
+    for keys in visited:
+        visited[keys] = False
+    return
 
 
+visited = {'S': False,
+           'A': False,
+           'B': False,
+           'C': False,
+           'D': False,
+           'E': False,
+           'F': False,
+           'H': False,
+           'P': False,
+           'Q': False,
+           'R': False,
+           'G': False}
+   
 matrix_1 = np.zeros((12, 12), dtype=int)
 matrix_2 = np.zeros((12, 12), dtype=int)
 matrix_3 = np.zeros((12, 12), dtype=int)
@@ -70,13 +87,14 @@ matrix_4 = convert.convertListToMatrixW(matrix_4, vertex_list_2_4, edge_list_4)
 # print("\nGraph 4")
 # convert.printAdjMatrix(matrix_4)
 
-# print("Graph 1: DFS Stack Iteratively VertexList")
-# DFS.DFS_stack_iterative_v(vertex_list_1_3)
-# print("\n\nGraph 2: DFS Stack Iteratively VertexList")
-# DFS.DFS_stack_iterative_v(vertex_list_2_4)
+print("Graph 1: DFS Stack Iteratively VertexList")
+DFS.DFS_stack_iterative_v(vertex_list_1_3, visited)
+resetVisited(visited)
+print("\n\nGraph 2: DFS Stack Iteratively VertexList")
+DFS.DFS_stack_iterative_v(vertex_list_2_4, visited)
 
-print("\nGraph 1: DFS Stack Recursively VertexList")
-DFS.DFS_stack_recursive_v('S', vertex_list_1_3)
-print("\n\nGraph 2: DFS Stack Recursively VertexList")
-DFS.DFS_stack_recursive_v('S',vertex_list_2_4)
+# print("\nGraph 1: DFS Stack Recursively VertexList")
+# DFS.DFS_stack_recursive_v('S', vertex_list_1_3, visited)
+# print("\n\nGraph 2: DFS Stack Recursively VertexList")
+# DFS.DFS_stack_recursive_v('S',vertex_list_2_4, visited)
 

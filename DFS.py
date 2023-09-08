@@ -5,32 +5,19 @@ class DFS:
 
     stack: list[dict[str, list[str]]] = []
 
-    visited = {'S': False,
-               'A': False,
-               'B': False,
-               'C': False,
-               'D': False,
-               'E': False,
-               'F': False,
-               'H': False,
-               'P': False,
-               'Q': False,
-               'R': False,
-               'G': False}
-
     @classmethod
-    def DFS_stack_recursive_v(self, startNode : str ,vertex_list: dict[str, list[str]]):
-        self.resetVisited(self)
+    def DFS_stack_recursive_v(self, startNode : str ,vertex_list: dict[str, list[str]], visited : dict[str : bool]):
+        # self.resetVisited(self)
 
-        if (startNode in self.visited) and (self.visited.get(startNode) == True):
+        if (startNode in visited) and (visited.get(startNode) == True):
             return
         
-        self.visited[startNode] = True
+        visited[startNode] = True
         values = vertex_list.get(startNode)
 
         print(f"->{startNode}")
         for neighbor in reversed(values):
-            self.DFS_stack_recursive_v(neighbor, vertex_list)
+            self.DFS_stack_recursive_v(neighbor, vertex_list,visited)
 
 
 
@@ -39,8 +26,8 @@ class DFS:
 
 
     @classmethod
-    def DFS_stack_iterative_v(self, vertex_list: dict[str, list[str]]):
-        self.resetVisited(self)
+    def DFS_stack_iterative_v(self, vertex_list: dict[str, list[str]], visited : dict[str : bool]):
+        # self.resetVisited(self)
 
         key, value = next(iter(vertex_list.items()))
         node = {}
@@ -65,8 +52,8 @@ class DFS:
             # Check values is empty
             if values:
                 for i in reversed(values):
-                    if self.visited.get(i) == False:
-                        self.visited[i] = True
+                    if visited.get(i) == False:
+                        visited[i] = True
 
                         nextNode = {}
                         nextNode[i] = vertex_list.get(i)
@@ -91,7 +78,4 @@ class DFS:
 
         return False
 
-    def resetVisited(self):
-        for keys in self.visited:
-            self.visited[keys] = False
-        return
+
