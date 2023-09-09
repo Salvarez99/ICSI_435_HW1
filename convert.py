@@ -2,19 +2,20 @@ import numpy as np
 
 
 class convert:
-    letters = np.array(["S", "A", "B", "C", "D", 'E','F', 'H', 'P', 'Q', 'R', 'G'])
-    vertices = {'S': 0,
-                'A': 1,
-                'B': 2,
-                'C': 3,
-                'D': 4,
-                'E': 5,
-                'F': 6,
+    letters = np.array(['A', 'B', 'C', 'D', 'E','F', 'G', 'H', 'P', 'Q', 'R','S'])
+    vertices = {
+                'A': 0,
+                'B': 1,
+                'C': 2,
+                'D': 3,
+                'E': 4,
+                'F': 5,
+                'G': 6,
                 'H': 7,
                 'P': 8,
                 'Q': 9,
                 'R': 10,
-                'G': 11}
+                'S': 11}
 
     #Convert list to unweighted adjacency matrix
     @classmethod
@@ -46,15 +47,15 @@ class convert:
     @classmethod
     def printAdjMatrix(self, matrix: np.ndarray):
         print("  ", end=" ")
-        # for i in range(self.letters.size):
-        #     print(f"{self.letters[i]} ", end=" ")
+        for i in range(self.letters.size):
+            print(f"{self.letters[i]} ", end=" ")
 
         print()
         for rows in range(12):
-            # print(f"{self.letters[rows]}: ", end="")
+            print(f"{self.letters[rows]}: ", end="")
             for cols in range(12):
                 if matrix[rows][cols] < 10:
-                    print(f"{matrix[rows,cols]}", end=" ")
+                    print(f"{matrix[rows,cols]} ", end=" ")
                 else:
                     print(f"{matrix[rows,cols]}", end=" ")
 
