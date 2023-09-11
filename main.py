@@ -87,30 +87,54 @@ matrix_4 = convert.convertListToMatrixW(matrix_4, vertex_list_2_4, edge_list_4)
 # print("\nGraph 4")
 # convert.printAdjMatrix(matrix_4)
 
-#Completed
-#DFS Stack It Vertex
-print("Graph 1: DFS Stack Iteratively VertexList")
-DFS.DFS_stack_iterative_v(vertex_list_1_3, visited)
-resetVisited(visited)
-print("\n\nGraph 2: DFS Stack Iteratively VertexList")
-DFS.DFS_stack_iterative_v(vertex_list_2_4, visited)
-resetVisited(visited)
+# #Completed (2)
+# #DFS Stack It Vertex
+# print("Graph 1: DFS Stack Iteratively VertexList")
+# DFS.DFS_stack_iterative_v(vertex_list_1_3, visited)
+# resetVisited(visited)
+# print("\n\nGraph 2: DFS Stack Iteratively VertexList")
+# DFS.DFS_stack_iterative_v(vertex_list_2_4, visited)
+# resetVisited(visited)
 
 
-#Completed
-#DFS Stack It Adj
-print("\n\nGraph 1: DFS Stack Iterative Adjacency Matrix")
-DFS.DFS_stack_iterative_adj(11, matrix_1, visited)
-resetVisited(visited)
-print("\n\nGraph 2: DFS Stack Iterative Adjacency Matrix")
-DFS.DFS_stack_iterative_adj(11, matrix_2, visited)
+# #Completed (2)
+# #DFS Stack It Adj
+# print("\n\nGraph 1: DFS Stack Iterative Adjacency Matrix")
+# DFS.DFS_stack_iterative_adj(11, matrix_1, visited)
+# resetVisited(visited)
+# print("\n\nGraph 2: DFS Stack Iterative Adjacency Matrix")
+# DFS.DFS_stack_iterative_adj(11, matrix_2, visited)
+# resetVisited(visited)
 
 
 
-#Debugging
-#DFS Stack Re Adj
+#Debugging (2)
+#DFS Stack Recursive Vertex
 # print("\nGraph 1: DFS Stack Recursively VertexList")
-# DFS.DFS_stack_recursive_v('S', vertex_list_1_3, visited)
+# DFS.DFS_stack_recursive_v('S', vertex_list_1_3)
+# resetVisited(visited)
 # print("\n\nGraph 2: DFS Stack Recursively VertexList")
 # DFS.DFS_stack_recursive_v('S',vertex_list_2_4, visited)
+# resetVisited(visited)
 
+#WIP (2)
+#DFS Stack Recursive Adj
+
+
+# #Completed (2)
+# #BFS Queue It VertexList
+# print("\n\nGraph 1: BFS Stack Iterative VertexList")
+# BFS.BFS_queue_iterative_v('S', vertex_list_1_3, visited)
+# resetVisited(visited)
+# print("\n\nGraph 2: BFS Stack Iterative VertexList")
+# BFS.BFS_queue_iterative_v('S', vertex_list_2_4, visited)
+# resetVisited(visited)
+
+# # #Completed (2)
+# #BFS Queue It adj
+# print("\n\nGraph 1: BFS Stack Iterative VertexList")
+# BFS.BFS_queue_iterative_adj(11, matrix_1, visited)
+# resetVisited(visited)
+# print("\n\nGraph 2: BFS Stack Iterative VertexList")
+# BFS.BFS_queue_iterative_adj(11, matrix_2, visited)
+# resetVisited(visited)
