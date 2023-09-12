@@ -68,12 +68,57 @@ class BFS:
         return
 
     @classmethod
-    def BFS_queue_recursive_v(self, vertex_list: dict[str, list[str]]):
+    def BFS_queue_recursive_v(self, startNode: str,  vertex_list: dict[str, list[str]], visited: dict[str: bool]):
+
+        if visited.get(startNode) == False:
+            self.queue.append(startNode)
+            visited[startNode] = True
+            startNode = self.queue.popleft()
+
+        if startNode != 'S' and self.isEmpty(self) and visited.get('G') == True:
+            print(f"->{startNode}", end="")
+            return
+
+        neighbors = vertex_list.get(startNode)
+        print(f"->{startNode}", end="")
+
+        if neighbors:
+            for neighbor in neighbors:
+                if visited[neighbor] == False:
+                    visited[neighbor] = True
+                    self.queue.append(neighbor)
+
+        if not self.isEmpty(self):
+            nextNode = self.queue.popleft()
+            self.BFS_queue_recursive_v(nextNode, vertex_list, visited)
 
         return
 
     @classmethod
-    def BFS_queue_recursive_adj(self, adj_matrix: np.ndarray):
+    def BFS_queue_recursive_adj(self, startNode: int, adj_matrix: np.ndarray, visited: dict[str: bool]):
+
+        nodeLetter = self.vertices.get(startNode)
+
+        if visited.get(nodeLetter) == False:
+            self.queue.append(startNode)
+            visited[nodeLetter] = True
+            startNode = self.queue.popleft()
+
+        if startNode != 11 and self.isEmpty(self) and visited.get('G') == True:
+            print(f"->{nodeLetter}", end="")
+            return
+
+        print(f"->{nodeLetter}", end="")
+
+        for col in range(len(adj_matrix)):
+            neighborLetter = self.vertices.get(col)
+            if adj_matrix[startNode][col] == 1 and visited.get(neighborLetter) == False:
+                visited[neighborLetter] = True
+                self.queue.append(col)
+
+        if not self.isEmpty(self):
+            nextNode = self.queue.popleft()
+            self.BFS_queue_recursive_adj(nextNode, adj_matrix, visited)
 
         return
 
