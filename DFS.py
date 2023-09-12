@@ -79,25 +79,42 @@ class DFS:
     # WIP, ask TA for help
     # Desired output should be ->S->D->B->A->C->F->G
     @classmethod
-    def DFS_stack_recursive_v(self, startNode: str, vertex_list: dict[str, list[str]], ):
+    def DFS_stack_recursive_v(self, startNode: str, goalNode: str, vertex_list: dict[str, list[str]], visited: dict[str: bool] ):
+        visited[startNode] = True
+        print(f"->{startNode}", "")
 
-        if startNode in self.stack or startNode == 'G':
-            return
+        if startNode == goalNode:
+            return True
+        
+        neighbors = vertex_list.get(startNode)
 
-        self.stack.append(startNode)
-        values = vertex_list.get(startNode)
+        if neighbors:
+            for neighbor in neighbors:
+                if visited.get(neighbor) == False:
+                    if self.DFS_stack_recursive_v(neighbor,goalNode, vertex_list, visited):
+                        return True
 
-        print(f'->{startNode}', end='')
+        return False
 
-        for neighbor in values:
-            self.DFS_stack_recursive_v(neighbor, vertex_list)
 
-        # WIP
-
+    # WIP
     @classmethod
-    def DFS_stack_recursive_adj(self, adj_matrix: np.ndarray):
+    def DFS_stack_recursive_adj(self, startNode: int, goalNode: int, adj_matrix: np.ndarray, visited: dict[str: bool] ):
+        nodeLetter = self.vertices.get(startNode)
+        visited[nodeLetter] = True
+        print(f"->{nodeLetter}", "")
 
-        return
+        if startNode == goalNode:
+            return True
+
+        for col in range(len(adj_matrix)):
+            neighborLetter = self.vertices.get(col)
+
+            if adj_matrix[startNode][col] == 1 and visited.get(neighborLetter) == False:
+                    if self.DFS_stack_recursive_adj(col, goalNode, adj_matrix, visited):
+                        return True
+
+        return False
 
     def isEmpty(self):
         if len(self.stack) == 0:
