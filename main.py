@@ -129,18 +129,22 @@ print("\n____________________________________________________", end=" ")
 print("\n\nGraph 1: BFS Queue Iterative VertexList")
 BFS.BFS_queue_iterative_v('S', vertex_list_1_3, visited)
 resetVisited(visited)
+BFS.emptyQueue()
 
 print("\n\nGraph 1: BFS Queue Iterative Adjacency Matrix")
 BFS.BFS_queue_iterative_adj(11, matrix_1, visited)
 resetVisited(visited)
+BFS.emptyQueue()
 
 print("\n\nGraph 1: BFS Queue Recursive VertexList")
 BFS.BFS_queue_recursive_v('S', vertex_list_1_3, visited)
 resetVisited(visited)
+BFS.emptyQueue()
 
 print("\n\nGraph 1: BFS Queue Recursive Adjacency Matrix")
 BFS.BFS_queue_recursive_adj(11, matrix_1, visited)
 resetVisited(visited)
+
 
 print("\n____________________________________________________", end=" ")
 
