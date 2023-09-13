@@ -110,12 +110,12 @@ resetVisited(visited)
 
 # #Debugging (2)
 # #DFS Stack Recursive Vertex
-# print("\n\nGraph 1: DFS Stack Recursively VertexList")
-# DFS.DFS_stack_recursive_v('S', 'G', vertex_list_1_3, visited)
-# resetVisited(visited)
-# print("\n\nGraph 2: DFS Stack Recursively VertexList")
-# DFS.DFS_stack_recursive_v('S', 'G', vertex_list_2_4, visited)
-# resetVisited(visited)
+print("\n\nGraph 1: DFS Stack Recursively VertexList")
+DFS.DFS_stack_recursive_v('S', 'G', vertex_list_1_3, visited)
+resetVisited(visited)
+print("\n\nGraph 2: DFS Stack Recursively VertexList")
+DFS.DFS_stack_recursive_v('S', 'G', vertex_list_2_4, visited)
+resetVisited(visited)
 
 #WIP (2)
 #DFS Stack Recursive Adj
@@ -127,38 +127,38 @@ DFS.DFS_stack_recursive_adj(11, 6, matrix_2, visited)
 resetVisited(visited)
 
 
+# #Completed (2)
+# #BFS Queue It VertexList
+print("\n\nGraph 1: BFS Queue Iterative VertexList")
+BFS.BFS_queue_iterative_v('S', vertex_list_1_3, visited)
+resetVisited(visited)
+print("\n\nGraph 2: BFS Queue Iterative VertexList")
+BFS.BFS_queue_iterative_v('S', vertex_list_2_4, visited)
+resetVisited(visited)
+
 # # #Completed (2)
-# # #BFS Queue It VertexList
-# print("\n\nGraph 1: BFS Queue Iterative VertexList")
-# BFS.BFS_queue_iterative_v('S', vertex_list_1_3, visited)
-# resetVisited(visited)
-# print("\n\nGraph 2: BFS Queue Iterative VertexList")
-# BFS.BFS_queue_iterative_v('S', vertex_list_2_4, visited)
-# resetVisited(visited)
+# #BFS Queue It adj
+print("\n\nGraph 1: BFS Queue Iterative Adjacency Matrix")
+BFS.BFS_queue_iterative_adj(11, matrix_1, visited)
+resetVisited(visited)
+print("\n\nGraph 2: BFS Queue Iterative Adjacency Matrix")
+BFS.BFS_queue_iterative_adj(11, matrix_2, visited)
+resetVisited(visited)
 
-# # # #Completed (2)
-# # #BFS Queue It adj
-# print("\n\nGraph 1: BFS Queue Iterative Adjacency Matrix")
-# BFS.BFS_queue_iterative_adj(11, matrix_1, visited)
-# resetVisited(visited)
-# print("\n\nGraph 2: BFS Queue Iterative Adjacency Matrix")
-# BFS.BFS_queue_iterative_adj(11, matrix_2, visited)
-# resetVisited(visited)
+# #Complete (2)
+# #BFS Queue Recursive VertexList
+print("\n\nGraph 1: BFS Queue Recursive VertexList")
+BFS.BFS_queue_recursive_v('S', vertex_list_1_3, visited)
+resetVisited(visited)
+print("\n\nGraph 2: BFSQueue Recursive VertexList")
+BFS.BFS_queue_recursive_v('S', vertex_list_2_4, visited)
+resetVisited(visited)
 
-# # #Complete (2)
-# # #BFS Queue Recursive VertexList
-# print("\n\nGraph 1: BFS Queue Recursive VertexList")
-# BFS.BFS_queue_recursive_v('S', vertex_list_1_3, visited)
-# resetVisited(visited)
-# print("\n\nGraph 2: BFSQueue Recursive VertexList")
-# BFS.BFS_queue_recursive_v('S', vertex_list_2_4, visited)
-# resetVisited(visited)
-
-# # #Complete (2)
-# # #BFS Queue Recursive Adjacency Matrix
-# print("\n\nGraph 1: BFS Queue Recursive Adjacency Matrix")
-# BFS.BFS_queue_recursive_adj(11, matrix_1, visited)
-# resetVisited(visited)
-# print("\n\nGraph 2: BFS Queue Recursive Adjacency Matrix")
-# BFS.BFS_queue_recursive_adj(11, matrix_2, visited)
-# resetVisited(visited)
+# #Complete (2)
+# #BFS Queue Recursive Adjacency Matrix
+print("\n\nGraph 1: BFS Queue Recursive Adjacency Matrix")
+BFS.BFS_queue_recursive_adj(11, matrix_1, visited)
+resetVisited(visited)
+print("\n\nGraph 2: BFS Queue Recursive Adjacency Matrix")
+BFS.BFS_queue_recursive_adj(11, matrix_2, visited)
+resetVisited(visited)
