@@ -19,40 +19,25 @@ class DFS:
                 11: 'S'}
 
     @classmethod
-    def DFS_stack_iterative_v(self, vertex_list: dict[str, list[str]], visited: dict[str: bool]):
+    def DFS_stack_iterative_v(self, start: str, vertex_list: dict[str, list[str]], visited: dict[str: bool]):
 
-        key, value = next(iter(vertex_list.items()))
-        node = {}
-        node[key] = value
-
-        self.stack.append(node)
+        self.stack = [start]
 
         while not self.isEmpty(self):
+            node = self.stack.pop()
+            neighbors = vertex_list.get(node)
+            print(f"->{node}", end="")
 
-            popped: dict[str, list[str]] = self.stack.pop()
+            if node == 'G':
+                return
 
-            popped_key = list(popped.keys())[0]
-            values = popped[popped_key]
+            if neighbors:
+                for neighbor in reversed(neighbors):
+                    if visited.get(neighbor) == False:
+                        visited[neighbor] = True
+                        self.stack.append(neighbor)
 
-            print(f"->{popped_key}", end="")
-
-            # Checking if currentNode is the goal node
-            if popped_key == 'G':
-                return vertex_list.get(popped_key)
-
-            # Iterate through each neighboring node
-            # Check values is empty
-            if values:
-                for i in reversed(values):
-                    if visited.get(i) == False:
-                        visited[i] = True
-
-                        nextNode = {}
-                        nextNode[i] = vertex_list.get(i)
-
-                        self.stack.append(nextNode)
-
-        return 0
+        return
 
     @classmethod
     def DFS_stack_iterative_adj(self, start: int, adj_matrix: np.ndarray, visited: dict[str: bool]):
@@ -79,30 +64,30 @@ class DFS:
     # WIP, ask TA for help
     # Desired output should be ->S->D->B->A->C->F->G
     @classmethod
-    def DFS_stack_recursive_v(self, startNode: str, goalNode: str, vertex_list: dict[str, list[str]], visited: dict[str: bool] ):
+    def DFS_stack_recursive_v(self, startNode: str, goalNode: str, vertex_list: dict[str, list[str]], visited: dict[str: bool]):
         visited[startNode] = True
-        print(f"->{startNode}", "")
+        print(f"->{startNode}", end="")
 
         if startNode == goalNode:
             return True
-        
+
         neighbors = vertex_list.get(startNode)
 
         if neighbors:
             for neighbor in neighbors:
                 if visited.get(neighbor) == False:
-                    if self.DFS_stack_recursive_v(neighbor,goalNode, vertex_list, visited):
+                    if self.DFS_stack_recursive_v(neighbor, goalNode, vertex_list, visited):
                         return True
 
         return False
 
-
     # WIP
+
     @classmethod
-    def DFS_stack_recursive_adj(self, startNode: int, goalNode: int, adj_matrix: np.ndarray, visited: dict[str: bool] ):
+    def DFS_stack_recursive_adj(self, startNode: int, goalNode: int, adj_matrix: np.ndarray, visited: dict[str: bool]):
         nodeLetter = self.vertices.get(startNode)
         visited[nodeLetter] = True
-        print(f"->{nodeLetter}", "")
+        print(f"->{nodeLetter}", end="")
 
         if startNode == goalNode:
             return True
@@ -111,8 +96,8 @@ class DFS:
             neighborLetter = self.vertices.get(col)
 
             if adj_matrix[startNode][col] == 1 and visited.get(neighborLetter) == False:
-                    if self.DFS_stack_recursive_adj(col, goalNode, adj_matrix, visited):
-                        return True
+                if self.DFS_stack_recursive_adj(col, goalNode, adj_matrix, visited):
+                    return True
 
         return False
 
