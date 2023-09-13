@@ -127,3 +127,6 @@ class BFS:
             return True
 
         return False
+    @classmethod
+    def emptyQueue(self):
+        self.queue.clear()

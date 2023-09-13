@@ -41,6 +41,7 @@ class DFS:
 
     @classmethod
     def DFS_stack_iterative_adj(self, start: int, adj_matrix: np.ndarray, visited: dict[str: bool]):
+
         self.stack = [start]
 
         while not self.isEmpty(self):
@@ -61,11 +62,12 @@ class DFS:
 
         return
 
-    # WIP, ask TA for help
-    # Desired output should be ->S->D->B->A->C->F->G
+
     @classmethod
     def DFS_stack_recursive_v(self, startNode: str, goalNode: str, vertex_list: dict[str, list[str]], visited: dict[str: bool]):
+        
         visited[startNode] = True
+        self.stack.append(startNode)
         print(f"->{startNode}", end="")
 
         if startNode == goalNode:
@@ -75,18 +77,19 @@ class DFS:
 
         if neighbors:
             for neighbor in neighbors:
-                if visited.get(neighbor) == False:
+                if visited.get(neighbor) == False and neighbor not in self.stack:
+                    visited[neighbor] = True
                     if self.DFS_stack_recursive_v(neighbor, goalNode, vertex_list, visited):
                         return True
 
         return False
 
-    # WIP
 
     @classmethod
     def DFS_stack_recursive_adj(self, startNode: int, goalNode: int, adj_matrix: np.ndarray, visited: dict[str: bool]):
         nodeLetter = self.vertices.get(startNode)
         visited[nodeLetter] = True
+        self.stack.append(startNode)
         print(f"->{nodeLetter}", end="")
 
         if startNode == goalNode:
@@ -95,7 +98,7 @@ class DFS:
         for col in range(len(adj_matrix)):
             neighborLetter = self.vertices.get(col)
 
-            if adj_matrix[startNode][col] == 1 and visited.get(neighborLetter) == False:
+            if (adj_matrix[startNode][col] == 1) and (visited.get(neighborLetter) == False) and (col not in self.stack):
                 if self.DFS_stack_recursive_adj(col, goalNode, adj_matrix, visited):
                     return True
 
@@ -106,3 +109,6 @@ class DFS:
             return True
 
         return False
+    @classmethod
+    def emptyStack(self):
+        self.stack.clear()
