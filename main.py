@@ -144,6 +144,7 @@ BFS.emptyQueue()
 print("\n\nGraph 1: BFS Queue Recursive Adjacency Matrix")
 BFS.BFS_queue_recursive_adj(11, matrix_1, visited)
 resetVisited(visited)
+BFS.emptyQueue()
 
 
 print("\n____________________________________________________", end=" ")
