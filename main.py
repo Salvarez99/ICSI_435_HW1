@@ -76,11 +76,10 @@ edge_list_4 = {'S': [3, 9, 1],
                'P': [15],
                'R': [2]}
 
-#tweak conversion to use dictionaries instead of array
-# matrix_1 = convert.convertListToMatrixUW(matrix_1, vertex_list_1_3)
-# matrix_2 = convert.convertListToMatrixUW(matrix_2, vertex_list_2_4)
-# matrix_3 = convert.convertListToMatrixW(matrix_3, vertex_list_1_3, edge_list_3)
-# matrix_4 = convert.convertListToMatrixW(matrix_4, vertex_list_2_4, edge_list_4)
+matrix_1 = convert.convertListToMatrixUW(matrix_1, vertex_list_1_3)
+matrix_2 = convert.convertListToMatrixUW(matrix_2, vertex_list_2_4)
+matrix_3 = convert.convertListToMatrixW(matrix_3, vertex_list_1_3, edge_list_3)
+matrix_4 = convert.convertListToMatrixW(matrix_4, vertex_list_2_4, edge_list_4)
 
 # convert.printAdjMatrix(matrix_1)
 # print()
@@ -183,12 +182,18 @@ edge_list_4 = {'S': [3, 9, 1],
 
 
 print("\n____________________________________________________", end=" ")
-resetVisited(visited)
 print("\n")
 # UCS.UCS_vertex_list('S', 'G', vertex_list_1_3, edge_list_3, visited)
 # resetVisited(visited)
 print("\n")
-UCS.UCS_vertex_list('S', 'G', vertex_list_2_4, edge_list_4, visited)
+# UCS.UCS_vertex_list('S', 'G', vertex_list_2_4, edge_list_4, visited)
+resetVisited(visited)
+print("\n")
+# UCS.UCS_adj_matrix(11, 6, matrix_3, visited)
+resetVisited(visited)
+UCS.UCS_adj_matrix(11, 6, matrix_4, visited)
+print("\n")
+
 
 
 

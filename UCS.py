@@ -19,19 +19,11 @@ class UCS:
     
     @classmethod
     def UCS_vertex_list(self, start: str, goal: str, vertexList: dict[str, list[str]], edgeList: dict[str, list[int]], visited: dict[str: bool]):
-        
-        heappush(self.priorityQueue, start)
-    
-                
+
         priority_queue = []
         searchPath = []
-        start = 'S'
         
         heappush(priority_queue, (0, start))
-        # print(currentNode)
-        # print(edgeCost)
-        # print(neighbors)
-        
         
         while len(priority_queue) > 0:
         
@@ -52,25 +44,50 @@ class UCS:
                     #check if neighbor has been visited before OR new path is shorter
                     if visited.get(currentNode) == False:
                         if visited.get(neighbor) == False or totalCost < neighborsEdgeCost[neighborIndex]:
-                            
-                            # print(f"currentNode: {currentNode}")
-                            # print(f"neighbor: {neighbor}")
-                            # print(f"neighborIndex: {neighborIndex}")
-                            # print(f"Edge cost from {currentNode} to {neighbor}: {neighborEdgeCost}")
+
                             print(f"Search path cost starting from S, at {currentNode} to {neighbor}: {totalCost}\n")
-                
                 
                             neighborsEdgeCost[neighborIndex] = totalCost
                             edgeList.update({currentNode:neighborsEdgeCost})
                             heappush(priority_queue, (totalCost, neighbor))
-                            #update parent of neighbor
             
             visited[currentNode] = True
         return
     
 
     @classmethod
-    def UCS_adj_matrix(self, start: str, goal: str, adj_matrix: np.ndarray, visited: dict[str: bool]):
+    def UCS_adj_matrix(self, start: int, goal: int, adj_matrix: np.ndarray, visited: dict[str: bool]):
+        
+        priority_queue = []
+        searchPath = []
+    
+        heappush(priority_queue, (0, start))
+        
+        while len(priority_queue) > 0:
+        
+            currentEdgeCost, currentNode = heappop(priority_queue)
+            currentNodeLetter = self.vertices.get(currentNode)
+        
+            if currentNode == goal:
+                return
+            
+            for neighbor in range(len(adj_matrix)):
+
+                if adj_matrix[currentNode][neighbor] > 0:
+
+                    neighborEdgeCost = adj_matrix[currentNode][neighbor]
+                    totalCost = currentEdgeCost + neighborEdgeCost
+                    neighborLetter = self.vertices.get(neighbor)
+
+                    if visited.get(currentNodeLetter) == False:
+                        if visited.get(neighborLetter) == False or totalCost < neighborEdgeCost:
+
+                            print(f"Search path cost starting from S, at {currentNodeLetter} to {neighborLetter}: {totalCost}\n")
+
+                            adj_matrix[currentNode][neighbor] = totalCost
+                            heappush(priority_queue, (totalCost , neighbor))
+
+            visited[currentNodeLetter] = True
         return
     
     def isEmpty(self):
