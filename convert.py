@@ -44,24 +44,7 @@ class convert:
                     edgeIndex += 1
 
                 edgeIndex = 0
-
-
-
-
-
-
-
-
-
-        # edge_index : int = 0
-        # for key, values in vertex_list.items():
-        #     if key in self.vertices:
-        #         row = self.vertices.get(key)
-        #         for value in values:
-        #             col = self.vertices.get(value)
-        #             matrix[row][col] = edge_list[edge_index]
-        #             edge_index += 1
-
+                
         return matrix
 
     @classmethod
