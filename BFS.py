@@ -27,12 +27,15 @@ class BFS:
     @classmethod
     def BFS_queue_iterative_v(self, startNode: str, vertex_list: dict[str, list[str]], visited: dict[str: bool]):
 
+        # Append startnode to queue
+        # Change visit status to True
         self.queue.append(startNode)
         visited[startNode] = True
 
-        neighbors = vertex_list.get(startNode)
+        # neighbors = vertex_list.get(startNode)
 
         while not self.isEmpty(self):
+
             node = self.queue.popleft()
             print(f"->{node}", end="")
             neighbors = vertex_list.get(node)
@@ -41,7 +44,11 @@ class BFS:
                 return
 
             if neighbors:
+                # Iterate through neighboring nodes
                 for neighbor in neighbors:
+                    # If neighbor has not yet been visited
+                    # Append to queue
+                    # Set visit status to True
                     if visited[neighbor] == False:
                         self.queue.append(neighbor)
                         visited[neighbor] = True
@@ -56,22 +63,32 @@ class BFS:
     @classmethod
     def BFS_queue_iterative_adj(self, startNode: int, adj_matrix: np.ndarray, visited: dict[str: bool]):
 
+        # Append startnode to queue
         self.queue.append(startNode)
         nodeLetter = self.vertices.get(startNode)
         node = -1
 
         while not self.isEmpty(self):
 
+            # Check if current node is goal node (6 : 'G')
             if node == 6:
                 return
 
+            # Pop node from queue
+            # Set visited status to True
             node = self.queue.popleft()
             nodeLetter = self.vertices.get(node)
             visited[nodeLetter] = True
             print(f"->{nodeLetter}", end="")
 
+            # Iterate through columns, representing neighbors
             for col in range(len(adj_matrix)):
+
                 node_key = self.vertices.get(col)
+
+                # If there is an neighbor and it has not been visited
+                # Change visited status to True
+                # Append neighbor to queue
                 if adj_matrix[node][col] == 1 and visited.get(node_key) == False:
                     visited[node_key] = True
                     self.queue.append(col)
@@ -86,11 +103,16 @@ class BFS:
     @classmethod
     def BFS_queue_recursive_v(self, startNode: str,  vertex_list: dict[str, list[str]], visited: dict[str: bool]):
 
+        # If startnode has not been visited
+        # Append it to queue
+        # Change visit status to True
+        # Pop startnode
         if visited.get(startNode) == False:
             self.queue.append(startNode)
             visited[startNode] = True
             startNode = self.queue.popleft()
 
+        # If goal node has been traversed return goal node
         if startNode != 'S' and self.isEmpty(self) and visited.get('G') == True:
             print(f"->{startNode}", end="")
             return
@@ -99,11 +121,17 @@ class BFS:
         print(f"->{startNode}", end="")
 
         if neighbors:
+            # Iterate through neighboring nodes
             for neighbor in neighbors:
+                # If neighbor has not been visited
+                # Set visit status to True
+                # Append to queue
                 if visited[neighbor] == False:
                     visited[neighbor] = True
                     self.queue.append(neighbor)
 
+        # If queue is not empty
+        # Recurse with next node and updated visited list
         if not self.isEmpty(self):
             nextNode = self.queue.popleft()
             self.BFS_queue_recursive_v(nextNode, vertex_list, visited)
@@ -121,23 +149,36 @@ class BFS:
 
         nodeLetter = self.vertices.get(startNode)
 
+        # If startnode has not been visited
+        # Append it to queue
+        # Change visit status to True
+        # Pop startnode
         if visited.get(nodeLetter) == False:
             self.queue.append(startNode)
             visited[nodeLetter] = True
             startNode = self.queue.popleft()
 
+        # If goal node has been traversed return goal node
         if startNode != 11 and self.isEmpty(self) and visited.get('G') == True:
             print(f"->{nodeLetter}", end="")
             return
 
         print(f"->{nodeLetter}", end="")
 
+        # Traverse colummns, representing neighboring nodes
         for col in range(len(adj_matrix)):
+
             neighborLetter = self.vertices.get(col)
+
+            # If there is a neighbor and it has not been visited
+            # Change visit status to True
+            # Append neighbor to queue
             if adj_matrix[startNode][col] == 1 and visited.get(neighborLetter) == False:
                 visited[neighborLetter] = True
                 self.queue.append(col)
 
+        # If queue is not empty
+        # Recurse with next node and updated visited list
         if not self.isEmpty(self):
             nextNode = self.queue.popleft()
             self.BFS_queue_recursive_adj(nextNode, adj_matrix, visited)

@@ -31,6 +31,7 @@ class UCS:
         priority_queue = []
         searchPath = []
 
+        # Push startnode into priority queue
         heappush(priority_queue, (0, start))
 
         while len(priority_queue) > 0:
@@ -42,24 +43,38 @@ class UCS:
                 return
 
             if neighbors:
+
+                # Iterate through neighboring nodes
                 for neighbor in neighbors:
+
+                    # Retreive index position of neighbor from list of neighbors
                     neighborIndex = neighbors.index(neighbor)
-                    neighborsEdgeCost = edgeList.get(currentNode)
-                    neighborEdgeCost = neighborsEdgeCost[neighborIndex]
+
+                    # Use currentNode to retreive edge costs of neighboring nodes
+                    neighborsEdgeCosts = edgeList.get(currentNode)
+
+                    # Use index position of neighbor to retrieve neighbors edge cost from list of neighboring edge costs
+                    neighborEdgeCost = neighborsEdgeCosts[neighborIndex]
 
                     totalCost = currentEdgeCost + neighborEdgeCost
 
-                    # check if neighbor has been visited before OR new path is shorter
+                    # Check if current node has been visited
                     if visited.get(currentNode) == False:
-                        if visited.get(neighbor) == False or totalCost < neighborsEdgeCost[neighborIndex]:
+                        # Check if neighbor has been visited before OR new path is shorter
+                        if visited.get(neighbor) == False or totalCost < neighborsEdgeCosts[neighborIndex]:
 
-                            print(
-                                f"Search path cost starting from S, at {currentNode} to {neighbor}: {totalCost}\n")
+                            print(f"Search path cost starting from S, at {currentNode} to {neighbor}: {totalCost}\n")
 
-                            neighborsEdgeCost[neighborIndex] = totalCost
-                            edgeList.update({currentNode: neighborsEdgeCost})
+                            # Update neighbors edge cost to equate to total cost of path from S to current neighbor
+                            neighborsEdgeCosts[neighborIndex] = totalCost
+
+                            # Update edgeList dictionary entry
+                            edgeList.update({currentNode: neighborsEdgeCosts})
+
+                            # Push total cost and current neighboring node
                             heappush(priority_queue, (totalCost, neighbor))
 
+            # Change visit status of current node to True
             visited[currentNode] = True
         return
 
@@ -75,6 +90,7 @@ class UCS:
         priority_queue = []
         searchPath = []
 
+        # Push startnode into priority queue
         heappush(priority_queue, (0, start))
 
         while len(priority_queue) > 0:
@@ -85,22 +101,32 @@ class UCS:
             if currentNode == goal:
                 return
 
+            # Traverse through neighboring nodes
             for neighbor in range(len(adj_matrix)):
 
+                # If there is a neighboring node
                 if adj_matrix[currentNode][neighbor] > 0:
 
+                    # Store edge cost
                     neighborEdgeCost = adj_matrix[currentNode][neighbor]
+
                     totalCost = currentEdgeCost + neighborEdgeCost
+
                     neighborLetter = self.vertices.get(neighbor)
 
+                    # Check if current node has been visited
                     if visited.get(currentNodeLetter) == False:
+                        # Check if neighboring node has been visited OR if current path is shorter
                         if visited.get(neighborLetter) == False or totalCost < neighborEdgeCost:
 
-                            print(
-                                f"Search path cost starting from S, at {currentNodeLetter} to {neighborLetter}: {totalCost}\n")
+                            print(f"Search path cost starting from S, at {currentNodeLetter} to {neighborLetter}: {totalCost}\n")
 
+                            # Update edge cost of neighboring node
                             adj_matrix[currentNode][neighbor] = totalCost
+
+                            # Push total cost and current neighboring node
                             heappush(priority_queue, (totalCost, neighbor))
 
+            # Change visit status of current node to True
             visited[currentNodeLetter] = True
         return
