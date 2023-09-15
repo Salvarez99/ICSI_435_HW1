@@ -125,8 +125,8 @@ class BFS:
     def isEmpty(self):
         if len(self.queue) == 0:
             return True
-
         return False
+
     @classmethod
     def emptyQueue(self):
         self.queue.clear()

@@ -31,16 +31,36 @@ class convert:
     
     #Convert list to weighted adjacency matrix
     @classmethod
-    def convertListToMatrixW(self, matrix: np.ndarray, vertex_list: dict[str, list[str]], edge_list: np.ndarray):
+    def convertListToMatrixW(self, matrix: np.ndarray, vertex_list: dict[str, list[str]], edge_list: dict[str, list[int]]):
 
-        edge_index : int = 0
-        for key, values in vertex_list.items():
-            if key in self.vertices:
-                row = self.vertices.get(key)
-                for value in values:
-                    col = self.vertices.get(value)
-                    matrix[row][col] = edge_list[edge_index]
-                    edge_index += 1
+        edgeIndex = 0
+        for node, neighbors in vertex_list.items():
+            if node in self.vertices:
+                row = self.vertices.get(node)
+                for neighbor in neighbors:
+                    col = self.vertices.get(neighbor)
+                    neighborsEdgeCost = edge_list.get(node)
+                    matrix[row][col] = neighborsEdgeCost[edgeIndex]
+                    edgeIndex += 1
+
+                edgeIndex = 0
+
+
+
+
+
+
+
+
+
+        # edge_index : int = 0
+        # for key, values in vertex_list.items():
+        #     if key in self.vertices:
+        #         row = self.vertices.get(key)
+        #         for value in values:
+        #             col = self.vertices.get(value)
+        #             matrix[row][col] = edge_list[edge_index]
+        #             edge_index += 1
 
         return matrix
 

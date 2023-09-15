@@ -62,10 +62,9 @@ class DFS:
 
         return
 
-
     @classmethod
     def DFS_stack_recursive_v(self, startNode: str, goalNode: str, vertex_list: dict[str, list[str]], visited: dict[str: bool]):
-        
+
         visited[startNode] = True
         self.stack.append(startNode)
         print(f"->{startNode}", end="")
@@ -83,7 +82,6 @@ class DFS:
                         return True
 
         return False
-
 
     @classmethod
     def DFS_stack_recursive_adj(self, startNode: int, goalNode: int, adj_matrix: np.ndarray, visited: dict[str: bool]):
@@ -107,8 +105,8 @@ class DFS:
     def isEmpty(self):
         if len(self.stack) == 0:
             return True
-
         return False
+
     @classmethod
     def emptyStack(self):
         self.stack.clear()
