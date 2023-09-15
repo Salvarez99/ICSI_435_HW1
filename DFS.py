@@ -5,6 +5,7 @@ class DFS:
 
     stack = []
 
+    # a dictionary representing node ASCII values and pairing to index position on an array
     vertices = {0: 'A',
                 1: 'B',
                 2: 'C',
@@ -18,6 +19,11 @@ class DFS:
                 10: 'R',
                 11: 'S'}
 
+    # Implementation of an iterative DFS on a vertex list
+    # param_1: start: str
+    # param_2: vertex_list: dict[str, list[str]]
+    # param_3: visited: dict[str: bool]
+    # return:
     @classmethod
     def DFS_stack_iterative_v(self, start: str, vertex_list: dict[str, list[str]], visited: dict[str: bool]):
 
@@ -39,6 +45,11 @@ class DFS:
 
         return
 
+    # Implementation of an iterative DFS on an adjacency matrix
+    # param_1: start: int
+    # param_2: adj_matrix: np.ndarray
+    # param_3: visited: dict[str: bool]
+    # return:
     @classmethod
     def DFS_stack_iterative_adj(self, start: int, adj_matrix: np.ndarray, visited: dict[str: bool]):
 
@@ -49,7 +60,7 @@ class DFS:
             print(f"->{self.vertices.get(node)}", end="")
 
             if node == 6:
-                return node
+                return
 
             for col in reversed(range(len(adj_matrix))):
                 node_key = self.vertices.get(col)
@@ -62,6 +73,12 @@ class DFS:
 
         return
 
+    # Implementation of a recursive DFS on a vertex list
+    # param_1: startNode: str
+    # param_2: goalNode: str
+    # param_3: vertex_list: dict[str, list[str]]
+    # param_4: visited: dict[str: bool]
+    # return: boolean
     @classmethod
     def DFS_stack_recursive_v(self, startNode: str, goalNode: str, vertex_list: dict[str, list[str]], visited: dict[str: bool]):
 
@@ -83,6 +100,12 @@ class DFS:
 
         return False
 
+    # Implementation of a recursive DFS on an adjacency matrix
+    # param_1: startNode: int
+    # param_2: goalNode: int
+    # param_3: adj_matrix: np.ndarray
+    # param_4: visited: dict[str: bool]
+    # return: boolean
     @classmethod
     def DFS_stack_recursive_adj(self, startNode: int, goalNode: int, adj_matrix: np.ndarray, visited: dict[str: bool]):
         nodeLetter = self.vertices.get(startNode)
@@ -102,11 +125,15 @@ class DFS:
 
         return False
 
+    # Helper method to check if stack is empty
+    # return: boolean
     def isEmpty(self):
         if len(self.stack) == 0:
             return True
         return False
 
+    # Helper Method to empty stack
+    # return:
     @classmethod
     def emptyStack(self):
         self.stack.clear()

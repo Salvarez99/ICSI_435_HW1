@@ -4,6 +4,10 @@ from DFS import *
 from BFS import *
 from UCS import *
 
+# Helper method used to set all values in visited to False
+# param_1: visited: dict[str: bool]
+# return:
+
 
 def resetVisited(visited: dict[str: bool]):
     for keys in visited:
@@ -42,7 +46,6 @@ vertex_list_1_3 = {'S': ['D', 'E', 'P'],
                    'R': ['E', 'F'],
                    'G': ['F']}
 
-# convert to a dictionary (currentNode, edgeValues)
 edge_list_3 = {'S': [3, 9, 1],
                'A': [2, 2],
                'B': [2, 1],
@@ -80,14 +83,6 @@ matrix_1 = convert.convertListToMatrixUW(matrix_1, vertex_list_1_3)
 matrix_2 = convert.convertListToMatrixUW(matrix_2, vertex_list_2_4)
 matrix_3 = convert.convertListToMatrixW(matrix_3, vertex_list_1_3, edge_list_3)
 matrix_4 = convert.convertListToMatrixW(matrix_4, vertex_list_2_4, edge_list_4)
-
-# convert.printAdjMatrix(matrix_1)
-# print()
-# convert.printAdjMatrix(matrix_2)
-# print()
-# convert.printAdjMatrix(matrix_3)
-# print()
-# convert.printAdjMatrix(matrix_4)
 
 # Graph 1: DFS Iterative and Recursive
 # print("\nGraph 1: DFS Stack Iteratively VertexList")
@@ -180,11 +175,10 @@ matrix_4 = convert.convertListToMatrixW(matrix_4, vertex_list_2_4, edge_list_4)
 # BFS.BFS_queue_recursive_adj(11, matrix_2, visited)
 # resetVisited(visited)
 
-
 print("\n____________________________________________________", end=" ")
 print("\n")
 # UCS.UCS_vertex_list('S', 'G', vertex_list_1_3, edge_list_3, visited)
-# resetVisited(visited)
+resetVisited(visited)
 print("\n")
 # UCS.UCS_vertex_list('S', 'G', vertex_list_2_4, edge_list_4, visited)
 resetVisited(visited)
@@ -193,8 +187,3 @@ print("\n")
 resetVisited(visited)
 UCS.UCS_adj_matrix(11, 6, matrix_4, visited)
 print("\n")
-
-
-
-
-

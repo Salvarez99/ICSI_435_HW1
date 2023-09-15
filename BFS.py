@@ -5,6 +5,7 @@ from collections import deque
 class BFS:
     queue = deque()
 
+    # a dictionary representing node ASCII values and pairing to index position on an array
     vertices = {0: 'A',
                 1: 'B',
                 2: 'C',
@@ -18,6 +19,11 @@ class BFS:
                 10: 'R',
                 11: 'S'}
 
+    # Implementation of an iterative BFS on a vertex list
+    # param_1: startNode: str
+    # param_2: vertex_list: dict[str, list[str]]
+    # param_3: visited: dict[str: bool]
+    # return:
     @classmethod
     def BFS_queue_iterative_v(self, startNode: str, vertex_list: dict[str, list[str]], visited: dict[str: bool]):
 
@@ -32,7 +38,7 @@ class BFS:
             neighbors = vertex_list.get(node)
 
             if node == 'G':
-                return node
+                return
 
             if neighbors:
                 for neighbor in neighbors:
@@ -42,6 +48,11 @@ class BFS:
 
         return
 
+    # Implementation of an iterative BFS on an adjacency matrix
+    # param_1: startNode: int
+    # param_2: adj_matrix: np.ndarray
+    # param_3: visited: dict[str: bool]
+    # return:
     @classmethod
     def BFS_queue_iterative_adj(self, startNode: int, adj_matrix: np.ndarray, visited: dict[str: bool]):
 
@@ -52,7 +63,7 @@ class BFS:
         while not self.isEmpty(self):
 
             if node == 6:
-                return node
+                return
 
             node = self.queue.popleft()
             nodeLetter = self.vertices.get(node)
@@ -67,6 +78,11 @@ class BFS:
 
         return
 
+    # Implementation of a recursive DFS on a vertex list
+    # param_1: startNode: str
+    # param_2: vertex_list: dict[str, list[str]]
+    # param_3: visited: dict[str: bool]
+    # return:
     @classmethod
     def BFS_queue_recursive_v(self, startNode: str,  vertex_list: dict[str, list[str]], visited: dict[str: bool]):
 
@@ -93,6 +109,12 @@ class BFS:
             self.BFS_queue_recursive_v(nextNode, vertex_list, visited)
 
         return
+
+    # Implementation of a recursive DFS on an adjacency matrix
+    # param_1: startNode: int
+    # param_2: adj_matrix: np.ndarray
+    # param_3: visited: dict[str: bool]
+    # return:
 
     @classmethod
     def BFS_queue_recursive_adj(self, startNode: int, adj_matrix: np.ndarray, visited: dict[str: bool]):
@@ -122,11 +144,15 @@ class BFS:
 
         return
 
+    # Helper method to check if queue is empty
+    # return: boolean
     def isEmpty(self):
         if len(self.queue) == 0:
             return True
         return False
 
+    # Helper Method to empty queue
+    # return:
     @classmethod
     def emptyQueue(self):
         self.queue.clear()

@@ -2,22 +2,29 @@ import numpy as np
 
 
 class convert:
-    letters = np.array(['A', 'B', 'C', 'D', 'E','F', 'G', 'H', 'P', 'Q', 'R','S'])
-    vertices = {
-                'A': 0,
-                'B': 1,
-                'C': 2,
-                'D': 3,
-                'E': 4,
-                'F': 5,
-                'G': 6,
-                'H': 7,
-                'P': 8,
-                'Q': 9,
-                'R': 10,
-                'S': 11}
+    # an array representing node ASCII values
+    letters = np.array(['A', 'B', 'C', 'D', 'E', 'F',
+                       'G', 'H', 'P', 'Q', 'R', 'S'])
 
-    #Convert list to unweighted adjacency matrix
+    # a dictionary representing node ASCII values and pairing to index position on an array
+    vertices = {
+        'A': 0,
+        'B': 1,
+        'C': 2,
+        'D': 3,
+        'E': 4,
+        'F': 5,
+        'G': 6,
+        'H': 7,
+        'P': 8,
+        'Q': 9,
+        'R': 10,
+        'S': 11}
+
+    # Takes in a given vertex list then converts it into an unweighted adjacency matrix
+    # param_1: matrix: np.ndarray
+    # param_2: vertex_list: dict[str, list[str]]
+    # return: matrix: np.ndarray
     @classmethod
     def convertListToMatrixUW(self, matrix: np.ndarray, vertex_list: dict[str, list[str]]):
         for key, values in vertex_list.items():
@@ -28,8 +35,12 @@ class convert:
                     matrix[row][col] = 1
 
         return matrix
-    
-    #Convert list to weighted adjacency matrix
+
+    # Takes in a given vertex list and edge list then converts it into a weighted adjacency matrix
+    # param_1: matrix: np.ndarray
+    # param_2: vertex_list: dict[str, list[str]]
+    # param_3: edge_list: dict[str, list[int]]
+    # return: matrix: np.ndarray
     @classmethod
     def convertListToMatrixW(self, matrix: np.ndarray, vertex_list: dict[str, list[str]], edge_list: dict[str, list[int]]):
 
@@ -44,9 +55,11 @@ class convert:
                     edgeIndex += 1
 
                 edgeIndex = 0
-                
+
         return matrix
 
+    # Print given adjacency matrix
+    # param_1: matrix: np.ndarray
     @classmethod
     def printAdjMatrix(self, matrix: np.ndarray):
         print("  ", end=" ")
