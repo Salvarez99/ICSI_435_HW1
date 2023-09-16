@@ -100,12 +100,15 @@ DFS.empty()
 print("\n\nGraph 1: BFS Queue Recursive VertexList")
 BFS.BFS_queue_recursive_v('S', vertex_list_1_3, visited)
 resetVisited(visited)
-BFS.emptyQueue()
+BFS.empty()
 
 print("\n\nGraph 1: BFS Queue Iterative VertexList")
+print(f"Path returned states:", end=" ")
 BFS.BFS_queue_iterative_v('S', vertex_list_1_3, visited)
+print(f"\nPath expanded states: {BFS.searchPath}")
+
 resetVisited(visited)
-BFS.emptyQueue()
+BFS.empty()
 
 print("\n____________________________________________________", end=" ")
 
@@ -125,12 +128,14 @@ DFS.empty()
 print("\n\nGraph 1: BFS Queue Recursive Adjacency Matrix")
 BFS.BFS_queue_recursive_adj(11, matrix_1, visited)
 resetVisited(visited)
-BFS.emptyQueue()
+BFS.empty()
 
 print("\n\nGraph 1: BFS Queue Iterative Adjacency Matrix")
+print(f"Path returned states:", end=" ")
 BFS.BFS_queue_iterative_adj(11, matrix_1, visited)
+print(f"\nPath expanded states: {BFS.searchPath}")
 resetVisited(visited)
-BFS.emptyQueue()
+BFS.empty()
 
 print("\n____________________________________________________", end=" ")
 
@@ -150,12 +155,14 @@ DFS.empty()
 print("\n\nGraph 2: BFS Queue Recursive VertexList")
 BFS.BFS_queue_recursive_v('S', vertex_list_2_4, visited)
 resetVisited(visited)
-BFS.emptyQueue()
+BFS.empty()
 
 print("\n\nGraph 2: BFS Queue Iterative VertexList")
+print(f"Path returned states:", end=" ")
 BFS.BFS_queue_iterative_v('S', vertex_list_2_4, visited)
+print(f"\nPath expanded states: {BFS.searchPath}")
 resetVisited(visited)
-BFS.emptyQueue()
+BFS.empty()
 
 print("\n____________________________________________________", end=" ")
 
@@ -174,13 +181,17 @@ DFS.empty()
 
 print("\n\nGraph 2: BFS Queue Recursive Adjacency Matrix")
 BFS.BFS_queue_recursive_adj(11, matrix_2, visited)
+print(f"Path returned states:", end=" ")
+print(f"\nPath expanded states: {BFS.searchPath}")
 resetVisited(visited)
-BFS.emptyQueue()
+BFS.empty()
 
 print("\n\nGraph 2: BFS Queue Iterative Adjacency Matrix")
+print(f"Path returned states:", end=" ")
 BFS.BFS_queue_iterative_adj(11, matrix_2, visited)
+print(f"\nPath expanded states: {BFS.searchPath}")
 resetVisited(visited)
-BFS.emptyQueue()
+BFS.empty()
 
 print("\n____________________________________________________", end=" ")
 

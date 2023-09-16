@@ -4,7 +4,7 @@ import numpy as np
 class DFS:
 
     stack = []
-    searchPath = [] 
+    searchPath = []
 
     # a dictionary representing node ASCII values and pairing to index position on an array
     vertices = {0: 'A',
@@ -70,9 +70,8 @@ class DFS:
             node_key = self.vertices.get(node)
             visited[node_key] = True
             print(f"->{self.vertices.get(node)}", end="")
-            
-            if visited.get('G') == False or node == 6:
 
+            if visited.get('G') == False or node == 6:
                 self.searchPath.append(node_key)
 
             # Traverse columns, representing neighboring nodes in reverse order

@@ -4,6 +4,7 @@ from collections import deque
 
 class BFS:
     queue = deque()
+    searchPath = [] 
 
     # a dictionary representing node ASCII values and pairing to index position on an array
     vertices = {0: 'A',
@@ -32,16 +33,14 @@ class BFS:
         self.queue.append(startNode)
         visited[startNode] = True
 
-        # neighbors = vertex_list.get(startNode)
-
         while not self.isEmpty(self):
 
             node = self.queue.popleft()
             print(f"->{node}", end="")
             neighbors = vertex_list.get(node)
 
-            if node == 'G':
-                return
+            if visited.get('G') == False or node == 'G':
+                self.searchPath.append(node)
 
             if neighbors:
                 # Iterate through neighboring nodes
@@ -65,21 +64,21 @@ class BFS:
 
         # Append startnode to queue
         self.queue.append(startNode)
-        nodeLetter = self.vertices.get(startNode)
         node = -1
 
         while not self.isEmpty(self):
 
-            # Check if current node is goal node (6 : 'G')
-            if node == 6:
-                return
-
             # Pop node from queue
             # Set visited status to True
             node = self.queue.popleft()
-            nodeLetter = self.vertices.get(node)
-            visited[nodeLetter] = True
-            print(f"->{nodeLetter}", end="")
+            node_key = self.vertices.get(node)
+            visited[node_key] = True
+            print(f"->{node_key}", end="")
+
+            # Check if current node is goal node (6 : 'G')
+            if visited.get('G') == False or node == 6:
+                self.searchPath.append(node_key)
+
 
             # Iterate through columns, representing neighbors
             for col in range(len(adj_matrix)):
@@ -195,5 +194,6 @@ class BFS:
     # Helper Method to empty queue
     # return:
     @classmethod
-    def emptyQueue(self):
+    def empty(self):
         self.queue.clear()
+        self.searchPath.clear()
