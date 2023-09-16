@@ -84,106 +84,106 @@ matrix_2 = convert.convertListToMatrixUW(matrix_2, vertex_list_2_4)
 matrix_3 = convert.convertListToMatrixW(matrix_3, vertex_list_1_3, edge_list_3)
 matrix_4 = convert.convertListToMatrixW(matrix_4, vertex_list_2_4, edge_list_4)
 
-# Graph 1: DFS Iterative and Recursive
-# print("\nGraph 1: DFS Stack Iteratively VertexList")
-# DFS.DFS_stack_iterative_v('S', vertex_list_1_3, visited)
-# resetVisited(visited)
-# DFS.emptyStack()
+# Graph 1: DFS/ BFS Iterative and Recursive using vertex list
+print("\n\nGraph 1: DFS Stack Recursively VertexList")
+DFS.DFS_stack_recursive_v('S', 'G', vertex_list_1_3, visited)
+resetVisited(visited)
+DFS.emptyStack()
 
-# # stack start with 11 == S
-# print("\n\nGraph 1: DFS Stack Iterative Adjacency Matrix")
-# DFS.DFS_stack_iterative_adj(11, matrix_1, visited)
-# resetVisited(visited)
-# DFS.emptyStack()
+print("\n\nGraph 1: DFS Stack Iteratively VertexList")
+DFS.DFS_stack_iterative_v('S', vertex_list_1_3, visited)
+resetVisited(visited)
+DFS.emptyStack()
 
-# print("\n\nGraph 1: DFS Stack Recursively VertexList")
-# DFS.DFS_stack_recursive_v('S', 'G', vertex_list_1_3, visited)
-# resetVisited(visited)
-# DFS.emptyStack()
+print("\n\nGraph 1: BFS Queue Recursive VertexList")
+BFS.BFS_queue_recursive_v('S', vertex_list_1_3, visited)
+resetVisited(visited)
+BFS.emptyQueue()
 
-# print("\n\nGraph 1: DFS Stack Recursively Adjacency Matrix")
-# DFS.DFS_stack_recursive_adj(11, 6, matrix_1, visited)
-# resetVisited(visited)
-# DFS.emptyStack()
-
-# print("\n____________________________________________________", end=" ")
-
-# # Graph 2: DFS Iterative and Recursive
-# print("\n\nGraph 2: DFS Stack Iteratively VertexList")
-# DFS.DFS_stack_iterative_v('S', vertex_list_2_4, visited)
-# resetVisited(visited)
-# DFS.emptyStack()
-
-# print("\n\nGraph 2: DFS Stack Iterative Adjacency Matrix")
-# DFS.DFS_stack_iterative_adj(11, matrix_2, visited)
-# resetVisited(visited)
-# DFS.emptyStack()
-
-# print("\n\nGraph 2: DFS Stack Recursively VertexList")
-# DFS.DFS_stack_recursive_v('S', 'G', vertex_list_2_4, visited)
-# resetVisited(visited)
-# DFS.emptyStack()
-
-# print("\n\nGraph 2: DFS Stack Recursively Adjacency Matrix")
-# DFS.DFS_stack_recursive_adj(11, 6, matrix_2, visited)
-# resetVisited(visited)
-
-# print("\n____________________________________________________", end=" ")
-
-# # Graph 1: BFS Iterative and Recursive
-# print("\n\nGraph 1: BFS Queue Iterative VertexList")
-# BFS.BFS_queue_iterative_v('S', vertex_list_1_3, visited)
-# resetVisited(visited)
-# BFS.emptyQueue()
-
-# print("\n\nGraph 1: BFS Queue Iterative Adjacency Matrix")
-# BFS.BFS_queue_iterative_adj(11, matrix_1, visited)
-# resetVisited(visited)
-# BFS.emptyQueue()
-
-# print("\n\nGraph 1: BFS Queue Recursive VertexList")
-# BFS.BFS_queue_recursive_v('S', vertex_list_1_3, visited)
-# resetVisited(visited)
-# BFS.emptyQueue()
-
-# print("\n\nGraph 1: BFS Queue Recursive Adjacency Matrix")
-# BFS.BFS_queue_recursive_adj(11, matrix_1, visited)
-# resetVisited(visited)
-# BFS.emptyQueue()
-
-
-# print("\n____________________________________________________", end=" ")
-
-
-# # Graph 2: BFS Iterative and Recursive
-# print("\n\nGraph 2: BFS Queue Iterative VertexList")
-# BFS.BFS_queue_iterative_v('S', vertex_list_2_4, visited)
-# resetVisited(visited)
-# BFS.emptyQueue()
-
-# print("\n\nGraph 2: BFS Queue Iterative Adjacency Matrix")
-# BFS.BFS_queue_iterative_adj(11, matrix_2, visited)
-# resetVisited(visited)
-# BFS.emptyQueue()
-
-# print("\n\nGraph 2: BFSQueue Recursive VertexList")
-# BFS.BFS_queue_recursive_v('S', vertex_list_2_4, visited)
-# resetVisited(visited)
-# BFS.emptyQueue()
-
-# print("\n\nGraph 2: BFS Queue Recursive Adjacency Matrix")
-# BFS.BFS_queue_recursive_adj(11, matrix_2, visited)
-# resetVisited(visited)
+print("\n\nGraph 1: BFS Queue Iterative VertexList")
+BFS.BFS_queue_iterative_v('S', vertex_list_1_3, visited)
+resetVisited(visited)
+BFS.emptyQueue()
 
 print("\n____________________________________________________", end=" ")
-print("\n")
+
+# Graph 1: DFS/ BFS Iterative and Recursive using adjacency matrix
+print("\n\nGraph 1: DFS Stack Recursively Adjacency Matrix")
+DFS.DFS_stack_recursive_adj(11, 6, matrix_1, visited)
+resetVisited(visited)
+DFS.emptyStack()
+
+print("\n\nGraph 1: DFS Stack Iterative Adjacency Matrix")
+DFS.DFS_stack_iterative_adj(11, matrix_1, visited)
+resetVisited(visited)
+DFS.emptyStack()
+
+print("\n\nGraph 1: BFS Queue Recursive Adjacency Matrix")
+BFS.BFS_queue_recursive_adj(11, matrix_1, visited)
+resetVisited(visited)
+BFS.emptyQueue()
+
+print("\n\nGraph 1: BFS Queue Iterative Adjacency Matrix")
+BFS.BFS_queue_iterative_adj(11, matrix_1, visited)
+resetVisited(visited)
+BFS.emptyQueue()
+
+print("\n____________________________________________________", end=" ")
+
+# Graph 2: DFS/ BFS Iterative and Recursive using vertex list
+print("\n\nGraph 2: DFS Stack Recursively VertexList")
+DFS.DFS_stack_recursive_v('S', 'G', vertex_list_2_4, visited)
+resetVisited(visited)
+DFS.emptyStack()
+
+print("\n\nGraph 2: DFS Stack Iteratively VertexList")
+DFS.DFS_stack_iterative_v('S', vertex_list_2_4, visited)
+resetVisited(visited)
+DFS.emptyStack()
+
+print("\n\nGraph 2: BFSQueue Recursive VertexList")
+BFS.BFS_queue_recursive_v('S', vertex_list_2_4, visited)
+resetVisited(visited)
+BFS.emptyQueue()
+
+print("\n\nGraph 2: BFS Queue Iterative VertexList")
+BFS.BFS_queue_iterative_v('S', vertex_list_2_4, visited)
+resetVisited(visited)
+BFS.emptyQueue()
+
+print("\n____________________________________________________", end=" ")
+
+# Graph 2: DFS/ BFS Iterative and Recursive using adjacency matrix
+print("\n\nGraph 2: DFS Stack Recursively Adjacency Matrix")
+DFS.DFS_stack_recursive_adj(11, 6, matrix_2, visited)
+resetVisited(visited)
+DFS.emptyStack()
+
+print("\n\nGraph 2: DFS Stack Iterative Adjacency Matrix")
+DFS.DFS_stack_iterative_adj(11, matrix_2, visited)
+resetVisited(visited)
+DFS.emptyStack()
+
+print("\n\nGraph 2: BFS Queue Recursive Adjacency Matrix")
+BFS.BFS_queue_recursive_adj(11, matrix_2, visited)
+resetVisited(visited)
+BFS.emptyQueue()
+
+print("\n\nGraph 2: BFS Queue Iterative Adjacency Matrix")
+BFS.BFS_queue_iterative_adj(11, matrix_2, visited)
+resetVisited(visited)
+BFS.emptyQueue()
+
+print("\n____________________________________________________", end=" ")
+
+# print("\n")
 # UCS.UCS_vertex_list('S', 'G', vertex_list_1_3, edge_list_3, visited)
-resetVisited(visited)
-print("\n")
+# resetVisited(visited)
+# print("\n")
 # UCS.UCS_vertex_list('S', 'G', vertex_list_2_4, edge_list_4, visited)
-resetVisited(visited)
-print("\n")
+# resetVisited(visited)
+# print("\n")
 # UCS.UCS_adj_matrix(11, 6, matrix_3, visited)
-resetVisited(visited)
-UCS.UCS_adj_matrix(11, 6, matrix_4, visited)
-print("\n")
+# resetVisited(visited)
+# UCS.UCS_adj_matrix(11, 6, matrix_4, visited)
+# print("\n")
