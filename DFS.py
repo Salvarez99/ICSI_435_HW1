@@ -104,8 +104,11 @@ class DFS:
         self.stack.append(startNode)
         print(f"->{startNode}", end="")
 
-        if startNode == goalNode:
-            return True
+        # if startNode == goalNode:
+        #     return True
+        
+        if visited.get('G') == False or startNode == 'G':
+                self.searchPath.append(startNode)
 
         neighbors = vertex_list.get(startNode)
 
@@ -118,8 +121,6 @@ class DFS:
                     visited[neighbor] = True
                     if self.DFS_stack_recursive_v(neighbor, goalNode, vertex_list, visited):
                         return True
-
-        visited[startNode] = True
         return False
 
     # Implementation of a recursive DFS on an adjacency matrix

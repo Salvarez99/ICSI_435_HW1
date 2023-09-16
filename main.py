@@ -86,7 +86,9 @@ matrix_4 = convert.convertListToMatrixW(matrix_4, vertex_list_2_4, edge_list_4)
 
 # Graph 1: DFS/ BFS Iterative and Recursive using vertex list
 print("\n\nGraph 1: DFS Stack Recursively VertexList")
+print(f"Path returned states:", end=" ")
 DFS.DFS_stack_recursive_v('S', 'G', vertex_list_1_3, visited)
+print(f"\nPath expanded states: {DFS.searchPath}")
 resetVisited(visited)
 DFS.empty()
 
@@ -141,7 +143,9 @@ print("\n____________________________________________________", end=" ")
 
 # Graph 2: DFS/ BFS Iterative and Recursive using vertex list
 print("\n\nGraph 2: DFS Stack Recursively VertexList")
+print(f"Path returned states:", end=" ")
 DFS.DFS_stack_recursive_v('S', 'G', vertex_list_2_4, visited)
+print(f"\nPath expanded states: {DFS.searchPath}")
 resetVisited(visited)
 DFS.empty()
 
