@@ -29,7 +29,6 @@ class UCS:
     def UCS_vertex_list(self, start: str, goal: str, vertexList: dict[str, list[str]], edgeList: dict[str, list[int]], visited: dict[str: bool]):
 
         priority_queue = []
-        searchPath = []
 
         # Push startnode into priority queue
         heappush(priority_queue, (0, start))
@@ -63,7 +62,9 @@ class UCS:
                         # Check if neighbor has been visited before OR new path is shorter
                         if visited.get(neighbor) == False or totalCost < neighborsEdgeCosts[neighborIndex]:
 
-                            print(f"Search path cost starting from S, at {currentNode} to {neighbor}: {totalCost}\n")
+                            print(
+                                f"Cost from S: {currentNode} -> {neighbor}: {totalCost}")
+
 
                             # Update neighbors edge cost to equate to total cost of path from S to current neighbor
                             neighborsEdgeCosts[neighborIndex] = totalCost
@@ -88,7 +89,6 @@ class UCS:
     def UCS_adj_matrix(self, start: int, goal: int, adj_matrix: np.ndarray, visited: dict[str: bool]):
 
         priority_queue = []
-        searchPath = []
 
         # Push startnode into priority queue
         heappush(priority_queue, (0, start))
@@ -99,7 +99,7 @@ class UCS:
             currentNodeLetter = self.vertices.get(currentNode)
 
             if currentNode == goal:
-                return
+                return 
 
             # Traverse through neighboring nodes
             for neighbor in range(len(adj_matrix)):
@@ -119,7 +119,8 @@ class UCS:
                         # Check if neighboring node has been visited OR if current path is shorter
                         if visited.get(neighborLetter) == False or totalCost < neighborEdgeCost:
 
-                            print(f"Search path cost starting from S, at {currentNodeLetter} to {neighborLetter}: {totalCost}\n")
+                            print(
+                                f"Cost from S: {currentNodeLetter} -> {neighborLetter}: {totalCost}")
 
                             # Update edge cost of neighboring node
                             adj_matrix[currentNode][neighbor] = totalCost
