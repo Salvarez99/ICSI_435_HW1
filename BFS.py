@@ -4,7 +4,7 @@ from collections import deque
 
 class BFS:
     queue = deque()
-    searchPath = [] 
+    searchPath = []
 
     # a dictionary representing node ASCII values and pairing to index position on an array
     vertices = {0: 'A',
@@ -78,7 +78,6 @@ class BFS:
             # Check if current node is goal node (6 : 'G')
             if visited.get('G') == False or node == 6:
                 self.searchPath.append(node_key)
-
 
             # Iterate through columns, representing neighbors
             for col in range(len(adj_matrix)):

@@ -116,7 +116,9 @@ print("\n____________________________________________________", end=" ")
 
 # Graph 1: DFS/ BFS Iterative and Recursive using adjacency matrix
 print("\n\nGraph 1: DFS Stack Recursively Adjacency Matrix")
+print(f"Path returned states:", end=" ")
 DFS.DFS_stack_recursive_adj(11, 6, matrix_1, visited)
+print(f"\nPath expanded states: {DFS.searchPath}")
 resetVisited(visited)
 DFS.empty()
 
@@ -172,7 +174,9 @@ print("\n____________________________________________________", end=" ")
 
 # Graph 2: DFS/ BFS Iterative and Recursive using adjacency matrix
 print("\n\nGraph 2: DFS Stack Recursively Adjacency Matrix")
+print(f"Path returned states:", end=" ")
 DFS.DFS_stack_recursive_adj(11, 6, matrix_2, visited)
+print(f"\nPath expanded states: {DFS.searchPath}")
 resetVisited(visited)
 DFS.empty()
 
@@ -184,16 +188,16 @@ resetVisited(visited)
 DFS.empty()
 
 print("\n\nGraph 2: BFS Queue Recursive Adjacency Matrix")
+# print(f"Path returned states:", end=" ")
 BFS.BFS_queue_recursive_adj(11, matrix_2, visited)
-print(f"Path returned states:", end=" ")
-print(f"\nPath expanded states: {BFS.searchPath}")
+# print(f"\nPath expanded states: {BFS.searchPath}")
 resetVisited(visited)
 BFS.empty()
 
 print("\n\nGraph 2: BFS Queue Iterative Adjacency Matrix")
-print(f"Path returned states:", end=" ")
+# print(f"Path returned states:", end=" ")
 BFS.BFS_queue_iterative_adj(11, matrix_2, visited)
-print(f"\nPath expanded states: {BFS.searchPath}")
+# print(f"\nPath expanded states: {BFS.searchPath}")
 resetVisited(visited)
 BFS.empty()
 
