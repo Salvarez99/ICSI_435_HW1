@@ -4,6 +4,7 @@ import numpy as np
 class DFS:
 
     stack = []
+    searchPath = [] 
 
     # a dictionary representing node ASCII values and pairing to index position on an array
     vertices = {0: 'A',
@@ -33,11 +34,12 @@ class DFS:
         while not self.isEmpty(self):
 
             node = self.stack.pop()
+            visited[node] = True
             neighbors = vertex_list.get(node)
             print(f"->{node}", end="")
 
-            if node == 'G':
-                return
+            if visited.get('G') == False or node == 'G':
+                self.searchPath.append(node)
 
             if neighbors:
                 # Iterate through neighboring vertices in reversed order
@@ -65,10 +67,13 @@ class DFS:
         while not self.isEmpty(self):
 
             node = self.stack.pop()
+            node_key = self.vertices.get(node)
+            visited[node_key] = True
             print(f"->{self.vertices.get(node)}", end="")
+            
+            if visited.get('G') == False or node == 6:
 
-            if node == 6:
-                return
+                self.searchPath.append(node_key)
 
             # Traverse columns, representing neighboring nodes in reverse order
             for col in reversed(range(len(adj_matrix))):
@@ -115,6 +120,7 @@ class DFS:
                     if self.DFS_stack_recursive_v(neighbor, goalNode, vertex_list, visited):
                         return True
 
+        visited[startNode] = True
         return False
 
     # Implementation of a recursive DFS on an adjacency matrix
@@ -158,5 +164,6 @@ class DFS:
     # Helper Method to empty stack
     # return:
     @classmethod
-    def emptyStack(self):
+    def empty(self):
         self.stack.clear()
+        self.searchPath.clear()
