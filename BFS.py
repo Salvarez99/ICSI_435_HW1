@@ -109,11 +109,9 @@ class BFS:
             self.queue.append(startNode)
             visited[startNode] = True
             startNode = self.queue.popleft()
-
-        # If goal node has been traversed return goal node
-        if startNode != 'S' and self.isEmpty(self) and visited.get('G') == True:
-            print(f"->{startNode}", end="")
-            return
+        
+        if visited.get('G') == False or startNode == 'G':
+            self.searchPath.append(startNode)
 
         neighbors = vertex_list.get(startNode)
         print(f"->{startNode}", end="")
@@ -156,10 +154,9 @@ class BFS:
             visited[nodeLetter] = True
             startNode = self.queue.popleft()
 
-        # If goal node has been traversed return goal node
-        if startNode != 11 and self.isEmpty(self) and visited.get('G') == True:
-            print(f"->{nodeLetter}", end="")
-            return
+        if visited.get('G') == False or startNode == 6:
+            self.searchPath.append(nodeLetter)
+
 
         print(f"->{nodeLetter}", end="")
 

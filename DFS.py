@@ -103,9 +103,9 @@ class DFS:
         visited[startNode] = True
         self.stack.append(startNode)
         print(f"->{startNode}", end="")
-        
+
         if visited.get('G') == False or startNode == 'G':
-                self.searchPath.append(startNode)
+            self.searchPath.append(startNode)
 
         neighbors = vertex_list.get(startNode)
 
@@ -136,12 +136,8 @@ class DFS:
         self.stack.append(startNode)
         print(f"->{nodeLetter}", end="")
 
-        # if startNode == goalNode:
-        #     return True
-
         if visited.get('G') == False or startNode == 6:
             self.searchPath.append(nodeLetter)
-
 
         # Iterate through adj_matrix columns, representing neighbors
         for col in range(len(adj_matrix)):
